@@ -35,6 +35,12 @@ dependencies {
 
     testImplementation("io.micronaut:micronaut-http-client")
 
+    testRuntimeOnly("com.h2database:h2")
+    testImplementation("org.mockito:mockito-core")
+    testImplementation("org.junit.jupiter:junit-jupiter-api")
+    testImplementation("org.junit.jupiter:junit-jupiter-engine")
+    testImplementation("io.micronaut.flyway:micronaut-flyway")
+
 }
 
 

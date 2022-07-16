@@ -2,19 +2,43 @@ syntax = "proto3";
 
 option java_multiple_files = true;
 option java_package = "br.com.curso";
-option java_outer_classname = "ProductsServices";
-option objc_class_prefix = "HLW";
 
 package br.com.curso;
 
-service ProductsServicesService {
-  rpc send (ProductsServicesRequest) returns (ProductsServicesReply) {}
+service ProductsService {
+  rpc Create (ProductServiceRequest) returns (ProductServiceResponse) {}
+  rpc FindById (RequestById) returns (ProductServiceResponse) {}
+  rpc Update (ProductServiceUpdateRequest) returns (ProductServiceResponse) {}
+  rpc Delete (RequestById) returns (Empty) {}
+  rpc FindAll (Empty) returns (ProductsList) {}
 }
 
-message ProductsServicesRequest {
+message Empty {}
+
+message ProductsList {
+  repeated ProductServiceResponse products = 1;
+}
+
+message RequestById {
+  int64 id = 1;
+}
+
+message ProductServiceRequest {
   string name = 1;
+  double price = 2;
+  int32 quantity_in_stock = 3;
 }
 
-message ProductsServicesReply {
-  string message = 1;
+message ProductServiceResponse {
+  int64 id = 1;
+  string name = 2;
+  double price = 3;
+  int32 quantity_in_stock = 4;
+}
+
+message ProductServiceUpdateRequest {
+  int64 id = 1;
+  string name = 2;
+  double price = 3;
+  int32 quantity_in_stock = 4;
 }
