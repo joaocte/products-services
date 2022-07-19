@@ -18,7 +18,12 @@ datasources:
     password: ''
     schema-generate: CREATE_DROP
     dialect: H2
-jpa.default.properties.hibernate.hbm2ddl.auto: update
+jpa:
+  default:
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: none
 
 flyway:
   datasources:
